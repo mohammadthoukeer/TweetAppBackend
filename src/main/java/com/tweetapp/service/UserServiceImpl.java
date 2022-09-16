@@ -119,7 +119,7 @@ public class UserServiceImpl implements UserService {
 				resetUser.setFirstName(user.get().getFirstName());
 				resetUser.setLastName(user.get().getLastName());
 				resetUser.setContactNumber(user.get().getContactNumber());
-				userRepo.save(resetUser);
+				userRepo.edit(resetUser);
 			}else {
 				logger.error("Email doesn't match with username");
 				throw new InvalidEmailException("Email doesn't match with username");

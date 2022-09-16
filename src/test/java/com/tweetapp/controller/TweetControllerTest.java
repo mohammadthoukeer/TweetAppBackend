@@ -48,7 +48,7 @@ class TweetControllerTest {
 	@BeforeEach
 	void setUp() {
 		user = new User("john", "John", "Wick", "john@yahoo.com", "john12", "1234567890");
-		tweet = new Tweet("100", "Hi All", LocalDateTime.now(), 0, new HashSet<>(), new ArrayList<>(),null , user);
+		tweet = new Tweet("100", "Hi All", LocalDateTime.now(), 0, new ArrayList<>(), new ArrayList<>(),null , user.getUsername());
 	}
 	
 	@Test

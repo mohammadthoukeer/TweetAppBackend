@@ -1,23 +1,18 @@
 package com.tweetapp.service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.tweetapp.entity.Tweet;
 import com.tweetapp.entity.User;
 import com.tweetapp.exception.NoSuchUserException;
 import com.tweetapp.exception.TweetNotFoundException;
-import com.tweetapp.kafka.ProducerService;
 import com.tweetapp.pojo.TweetResponse;
 import com.tweetapp.repository.TweetRepository;
 import com.tweetapp.repository.UserRepository;
@@ -45,9 +40,10 @@ public class TweetServiceImpl implements TweetService {
 			throw new NoSuchUserException("No such user exists");
 		}
 		tweet.setPostedDate(LocalDateTime.now());
-		tweet.setUser(user.get());
-		tweet.setLikedBy(new HashSet<>());
+		tweet.setUser(username);
+		tweet.setLikedBy(new ArrayList<>());
 		tweet.setReplies(new ArrayList<>());
+		logger.info(tweet.toString());
 		Tweet savedTweet = tweetRepo.save(tweet);
 		//producer.publishMessage(savedTweet.getPostedDate() + " - " + "New Tweet Added : " + savedTweet.getTweet() + " - " + user.get().getUsername());
 		logger.info("Posted Tweet : " + savedTweet);
@@ -58,8 +54,10 @@ public class TweetServiceImpl implements TweetService {
 	@Override
 	public List<Tweet> getAllTweets() {
 		logger.debug("-----TweetServiceImpl -> getAllTweets()-----");
-		List<Tweet> tweets = tweetRepo.findAll(Sort.by(Sort.Direction.DESC, "postedDate"));
-		return tweets;
+		List<Tweet> tweets = tweetRepo.findAll();
+		List<Tweet> sortedTweets = tweets.stream().sorted(Comparator.comparing(Tweet::getPostedDate).reversed())
+				.collect(Collectors.toList());
+		return sortedTweets;
 	}
 	
 	@Override
@@ -70,8 +68,16 @@ public class TweetServiceImpl implements TweetService {
 			logger.error("No such user exists");
 			throw new NoSuchUserException("No such user exists");
 		}
+		List<Tweet> tweets = tweetRepo.findAll();
+		List<Tweet> tweetsByUser = new ArrayList<>();
+		tweets.forEach(tweet -> {
+			if(tweet.getUser().equals(username)){
+				tweetsByUser.add(tweet);
+			}
+		});
+		tweetsByUser.sort(Comparator.comparing(Tweet::getPostedDate).reversed());
 		logger.debug("-----End TweetServiceImpl -> getAllTweetsByUser(username)-----");
-		return tweetRepo.findByUserUsernameOrderByPostedDateDesc(username);
+		return tweetsByUser;
 	}
 	
 	@Override
@@ -83,7 +89,7 @@ public class TweetServiceImpl implements TweetService {
 			throw new NoSuchUserException("No such user exists");
 		}
 		tweet.setPostedDate(LocalDateTime.now());
-		Tweet updatedTweet = tweetRepo.save(tweet);
+		Tweet updatedTweet = tweetRepo.edit(tweet);
 		//producer.publishMessage(updatedTweet.getPostedDate() + " - " + "Tweet Updated : " + updatedTweet.getTweet() + " - " + updatedTweet.getUser().getUsername());
 		logger.info("Updated Tweet : " + updatedTweet);
 		logger.debug("-----End TweetServiceImpl -> updateTweet(username,tweet)-----");
@@ -97,6 +103,7 @@ public class TweetServiceImpl implements TweetService {
 		if(oldTweet.isEmpty()) {
 			throw new TweetNotFoundException("Tweet not found");
 		}
+		logger.info(tweetId + " "+ tweet);
 		tweet.setId(tweetId);
 		tweet.setPostedDate(LocalDateTime.now());
 		tweet.setTweetTag(tweet.getTweetTag()!=null?tweet.getTweetTag():oldTweet.get().getTweetTag());
@@ -104,7 +111,7 @@ public class TweetServiceImpl implements TweetService {
 		tweet.setLikes(oldTweet.get().getLikes());
 		tweet.setLikedBy(oldTweet.get().getLikedBy());
 		tweet.setReplies(oldTweet.get().getReplies());
-		Tweet updatedTweet = tweetRepo.save(tweet);
+		Tweet updatedTweet = tweetRepo.edit(tweet);
 		//producer.publishMessage(updatedTweet.getPostedDate() + " - " + "Tweet Updated : " + updatedTweet.getTweet() + " - " + updatedTweet.getUser().getUsername());
 		logger.debug("-----End TweetServiceImpl -> updateTweetByUser(tweet)-----");
 		return updatedTweet;
@@ -138,7 +145,7 @@ public class TweetServiceImpl implements TweetService {
 			throw new NoSuchUserException("No such user exists");
 		}
 		TweetResponse tweetResponse = new TweetResponse();
-		Set<String> usersLiked = tweet.get().getLikedBy();
+		List<String> usersLiked = tweet.get().getLikedBy();
 		if(usersLiked.contains(username)) {
 			usersLiked.remove(username);
 			tweetResponse.setMessage("Tweet disliked");
@@ -148,7 +155,7 @@ public class TweetServiceImpl implements TweetService {
 		}
 		tweet.get().setLikes(usersLiked.size());
 		logger.info("Tweet likes : " + tweet.get().getLikes());
-		tweetRepo.save(tweet.get());
+		tweetRepo.edit(tweet.get());
 		//producer.publishMessage(LocalDateTime.now() + " - " + "Tweet Liked : " + tweet.get().getTweet() + " - " + username);
 		logger.debug("-----End TweetServiceImpl -> likeTweetById(tweetId,username)-----");
 		return tweetResponse;
@@ -169,19 +176,19 @@ public class TweetServiceImpl implements TweetService {
 			tweet.setId(String.valueOf(++id));
 		}
 		tweet.setPostedDate(LocalDateTime.now());
-		tweet.setLikedBy(new HashSet<>());
+		tweet.setLikedBy(new ArrayList<>());
 		Optional<User> user = userRepo.findById(username);
 		if(user.isEmpty()) {
 			logger.error("No such user exists");
 			throw new NoSuchUserException("No such user exists");
 		}
-		tweet.setUser(user.get());
+		tweet.setUser(username);
 		replies.add(tweet);
 		parentTweet.get().setReplies(replies);
 		//producer.publishMessage(LocalDateTime.now() + " - " + "Tweet Reply : " + parentTweet.get().getTweet() + " -> " + tweet.getTweet() + " - " + user.get().getUsername());
 		logger.info("Tweet replies : " + parentTweet.get().getReplies());
 		logger.debug("-----End TweetServiceImpl -> replyTweetById(parentTweetId,tweet,username)-----");
-		return tweetRepo.save(parentTweet.get());
+		return tweetRepo.edit(parentTweet.get());
 	}
 
 }

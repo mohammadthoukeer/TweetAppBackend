@@ -19,7 +19,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.tweetapp.entity.Tweet;
@@ -59,24 +58,24 @@ class TweetServiceImplTest {
 		tweet = new Tweet();
 		tweet.setId("1");
 		tweet.setTweet("Hi All");
-		tweet.setLikedBy(new HashSet<>());
+		tweet.setLikedBy(new ArrayList<>());
 		List<Tweet> replies = new ArrayList<Tweet>();
 		tweet2 = new Tweet();
 		tweet2.setId("100");
 		tweet2.setTweet("Hi");
-		tweet2.setLikedBy(new HashSet<>());
+		tweet2.setLikedBy(new ArrayList<>());
 		replies.add(tweet);
 		tweet2.setReplies(replies);
 		user = new User("john", "John", "Wick", "john@yahoo.com", "john12", "1234567890");
-		tweet.setUser(user);
+		tweet.setUser(user.getUsername());
 		tweet.setReplies(new ArrayList<Tweet>());
-		tweet2.setUser(user);
+		tweet2.setUser(user.getUsername());
 		tweet3 = new Tweet();
 		tweet3.setId("200");
 		tweet3.setTweet("Good");
-		tweet3.setLikedBy(new HashSet<String>());
+		tweet3.setLikedBy(new ArrayList<>());
 		tweet3.setReplies(new ArrayList<Tweet>());
-		tweet3.setUser(user);
+		tweet3.setUser(user.getUsername());
 	}
 
 	
@@ -107,9 +106,9 @@ class TweetServiceImplTest {
 	@Test
 	@DisplayName("Test getAllTweets()")
 	public void testGetAllTweets() {
-		when(tweetRepo.findAll(Sort.by(Sort.Direction.DESC,"postedDate"))).thenReturn(Arrays.asList(tweet));
+		when(tweetRepo.findAll()).thenReturn(Arrays.asList(tweet));
 		assertThat(tweetService.getAllTweets()).hasSize(1);
-		verify(tweetRepo).findAll(Sort.by(Sort.Direction.DESC,"postedDate"));
+		verify(tweetRepo).findAll();
 	}
 	
 	/*********************************************************  getAllTweetsByUser()  @throws Exception ******************************************************/
@@ -119,10 +118,10 @@ class TweetServiceImplTest {
 	@DisplayName("Test getAllTweetsByUser() valid username")
 	public void testGetAllTweetsByUser() throws Exception {
 		when(userRepo.findById("john")).thenReturn(Optional.of(user));
-		when(tweetRepo.findByUserUsernameOrderByPostedDateDesc("john")).thenReturn(List.of(tweet));
+		when(tweetRepo.findAll()).thenReturn(List.of(tweet));
 		assertThat(tweetService.getAllTweetsByUser("john")).hasSize(1);
 		verify(userRepo).findById(any());
-		verify(tweetRepo).findByUserUsernameOrderByPostedDateDesc(any());
+		verify(tweetRepo).findAll();
 	}
 	
 	@Test
@@ -139,10 +138,10 @@ class TweetServiceImplTest {
 	@DisplayName("Test updateTweet() with valid username")
 	public void testUpdateTweetValid() throws Exception {
 		when(userRepo.findById("john")).thenReturn(Optional.of(user));
-		when(tweetRepo.save(tweet)).thenReturn(tweet);
+		when(tweetRepo.edit(tweet)).thenReturn(tweet);
 		assertThat(tweetService.updateTweet("john", tweet).getTweet()).isEqualTo(tweet.getTweet());
 		verify(userRepo).findById(any());
-		verify(tweetRepo).save(any());
+		verify(tweetRepo).edit(any());
 	}
 	
 	@Test
@@ -159,10 +158,10 @@ class TweetServiceImplTest {
 	@DisplayName("Test updateTweetByUser() with valid tweetId")
 	public void testUpdateTweetByUserValid() throws Exception {
 		when(tweetRepo.findById("1")).thenReturn(Optional.of(tweet));
-		when(tweetRepo.save(tweet)).thenReturn(tweet);
+		when(tweetRepo.edit(tweet)).thenReturn(tweet);
 		assertThat(tweetService.updateTweetByUser(tweet, "1").getTweet()).isEqualTo(tweet.getTweet());
 		verify(tweetRepo).findById(any());
-		verify(tweetRepo).save(any());
+		verify(tweetRepo).edit(any());
 	}
 	
 	@Test
@@ -229,11 +228,11 @@ class TweetServiceImplTest {
 	public void testReplyTweetByIdValid() throws Exception {
 		when(tweetRepo.findById("200")).thenReturn(Optional.of(tweet3));
 		when(userRepo.findById("john")).thenReturn(Optional.of(user));
-		when(tweetRepo.save(tweet3)).thenReturn(tweet3);
+		when(tweetRepo.edit(tweet3)).thenReturn(tweet3);
 		assertThat(tweetService.replyTweetById("200",tweet,"john").getTweet()).isEqualTo(tweet3.getTweet());
 		verify(tweetRepo).findById(any());
 		verify(userRepo).findById(any());
-		verify(tweetRepo).save(any());
+		verify(tweetRepo).edit(any());
 	}
 	
 	@Test

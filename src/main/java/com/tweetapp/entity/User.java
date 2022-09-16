@@ -3,40 +3,46 @@ package com.tweetapp.entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@Document(collection = "users")
+//@Document(collection = "users")
+@DynamoDBTable(tableName = "Users")
 @ApiModel(value = "Model object that stores the User information")
 public class User {
 
 	@ApiModelProperty(notes = "Unique username of the User")
-	@Id
+	//@Id
+	@DynamoDBHashKey(attributeName = "username")
 	@NotNull(message = "Username should not be null")
 	private String username;
 	
 	@ApiModelProperty(notes = "FirstName of the User")
 	@NotNull(message = "FirstName should not be null")
+	@DynamoDBAttribute
 	private String firstName;
 	
 	@ApiModelProperty(notes = "LastName of the User")
 	@NotNull(message = "LastName should not be null")
+	@DynamoDBAttribute
 	private String lastName;
 	
 	@ApiModelProperty(notes = "Unique email of the User")
 	@Email(message = "Provide correct email address")
 	@NotNull(message = "Email should not be null")
+	@DynamoDBAttribute
 	private String email;
 	
 	@ApiModelProperty(notes = "Password of the User")
 	@NotNull(message = "Password should not be null")
+	@DynamoDBAttribute
 	private String password;
 	
 	@ApiModelProperty(notes = "ContactNumber of the User")
 	@NotNull(message = "ContactNumber should not be null")
+	@DynamoDBAttribute
 	private String contactNumber;
 	
 	public User() {}
