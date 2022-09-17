@@ -511,3 +511,167 @@
 2022-09-17 15:20:20.525  INFO 29936 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 2022-09-17 15:20:20.544  INFO 29936 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 2022-09-17 15:20:20.775  INFO 29936 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-09-17 15:44:48.648  INFO 19200 --- [restartedMain] com.tweetapp.TweetAppApplication         : Starting TweetAppApplication using Java 11.0.9 on LTIN324832 with PID 19200 (C:\HackFSE\TweetAppBackend\target\classes started by 918594 in C:\HackFSE\TweetAppBackend)
+2022-09-17 15:44:48.653  INFO 19200 --- [restartedMain] com.tweetapp.TweetAppApplication         : No active profile set, falling back to default profiles: default
+2022-09-17 15:44:48.759  INFO 19200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-17 15:44:48.759  INFO 19200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-17 15:44:52.244  INFO 19200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-09-17 15:44:52.263  INFO 19200 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-17 15:44:52.263  INFO 19200 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-09-17 15:44:52.411  INFO 19200 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-17 15:44:52.412  INFO 19200 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3652 ms
+2022-09-17 15:44:54.791  INFO 19200 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
+2022-09-17 15:44:55.028  INFO 19200 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-09-17 15:44:55.058  INFO 19200 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-17 15:44:55.537  INFO 19200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2022-09-17 15:44:56.236  INFO 19200 --- [restartedMain] com.tweetapp.TweetAppApplication         : Started TweetAppApplication in 8.442 seconds (JVM running for 9.314)
+2022-09-17 15:57:51.200  INFO 19200 --- [http-nio-8888-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-17 15:57:51.201  INFO 19200 --- [http-nio-8888-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-17 15:57:51.204  INFO 19200 --- [http-nio-8888-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-09-17 15:57:51.352 ERROR 19200 --- [http-nio-8888-exec-4] com.tweetapp.jwt.JwtUtil                 : Token verification failed
+2022-09-17 15:57:51.354  INFO 19200 --- [http-nio-8888-exec-4] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : false
+2022-09-17 15:57:51.354  INFO 19200 --- [http-nio-8888-exec-4] com.tweetapp.controller.UserController   : Token valid status : false
+2022-09-17 15:57:51.388 ERROR 19200 --- [http-nio-8888-exec-5] com.tweetapp.jwt.JwtUtil                 : Token verification failed
+2022-09-17 15:57:51.389  INFO 19200 --- [http-nio-8888-exec-5] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : false
+2022-09-17 15:57:51.389  INFO 19200 --- [http-nio-8888-exec-5] com.tweetapp.controller.UserController   : Token valid status : false
+2022-09-17 15:57:53.469  INFO 19200 --- [http-nio-8888-exec-2] com.tweetapp.controller.TweetController  : Getting all tweets
+2022-09-17 15:57:53.786  INFO 19200 --- [http-nio-8888-exec-1] com.tweetapp.controller.TweetController  : Getting all tweets of user : bob
+2022-09-17 15:58:10.887  INFO 19200 --- [http-nio-8888-exec-7] com.tweetapp.jwt.JwtUtil                 : Token created :: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE2NjM0MTA0OTAsImV4cCI6MTY2MzQxNDA5MCwidXNlcm5hbWUiOiJhbGljZSJ9.cTL2uAS2g9aSLVVAzqwlVUN1Fof7FA_UKKlZHULwdyI
+2022-09-17 15:58:10.890  INFO 19200 --- [http-nio-8888-exec-7] com.tweetapp.service.UserServiceImpl     : loginResponse : LoginResponse [username=alice, token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE2NjM0MTA0OTAsImV4cCI6MTY2MzQxNDA5MCwidXNlcm5hbWUiOiJhbGljZSJ9.cTL2uAS2g9aSLVVAzqwlVUN1Fof7FA_UKKlZHULwdyI]
+2022-09-17 15:58:10.891  INFO 19200 --- [http-nio-8888-exec-7] com.tweetapp.controller.UserController   : User login : alice
+2022-09-17 15:58:14.609  INFO 19200 --- [http-nio-8888-exec-8] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 15:58:14.610  INFO 19200 --- [http-nio-8888-exec-8] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 15:58:14.979  INFO 19200 --- [http-nio-8888-exec-9] com.tweetapp.controller.UserController   : Getting all users
+2022-09-17 15:58:23.254  INFO 19200 --- [http-nio-8888-exec-10] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 15:58:23.256  INFO 19200 --- [http-nio-8888-exec-10] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 15:58:23.264  INFO 19200 --- [http-nio-8888-exec-3] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 15:58:23.266  INFO 19200 --- [http-nio-8888-exec-3] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 15:58:23.684  INFO 19200 --- [http-nio-8888-exec-4] com.tweetapp.controller.TweetController  : Getting all tweets
+2022-09-17 15:58:23.982  INFO 19200 --- [http-nio-8888-exec-5] com.tweetapp.controller.TweetController  : Getting all tweets of user : alice
+2022-09-17 16:01:30.597  INFO 19200 --- [http-nio-8888-exec-8] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 16:01:30.599  INFO 19200 --- [http-nio-8888-exec-8] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 16:01:30.601  INFO 19200 --- [http-nio-8888-exec-9] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 16:01:30.602  INFO 19200 --- [http-nio-8888-exec-9] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 16:01:32.072  INFO 19200 --- [http-nio-8888-exec-3] com.tweetapp.controller.TweetController  : Getting all tweets
+2022-09-17 16:01:32.380  INFO 19200 --- [http-nio-8888-exec-10] com.tweetapp.controller.TweetController  : Getting all tweets of user : alice
+2022-09-17 16:01:43.153  INFO 19200 --- [http-nio-8888-exec-5] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 16:01:43.155  INFO 19200 --- [http-nio-8888-exec-5] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 16:01:43.155  INFO 19200 --- [http-nio-8888-exec-4] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 16:01:43.157  INFO 19200 --- [http-nio-8888-exec-4] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 16:01:43.485  INFO 19200 --- [http-nio-8888-exec-1] com.tweetapp.controller.TweetController  : Getting all tweets
+2022-09-17 16:01:43.758  INFO 19200 --- [http-nio-8888-exec-2] com.tweetapp.controller.TweetController  : Getting all tweets of user : alice
+2022-09-17 16:03:43.045  INFO 19200 --- [http-nio-8888-exec-3] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 16:03:43.046  INFO 19200 --- [http-nio-8888-exec-3] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 16:03:43.056  INFO 19200 --- [http-nio-8888-exec-10] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 16:03:43.057  INFO 19200 --- [http-nio-8888-exec-10] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 16:03:44.317  INFO 19200 --- [http-nio-8888-exec-4] com.tweetapp.controller.TweetController  : Getting all tweets
+2022-09-17 16:03:44.592  INFO 19200 --- [http-nio-8888-exec-5] com.tweetapp.controller.TweetController  : Getting all tweets of user : alice
+2022-09-17 16:04:41.546  INFO 19200 --- [http-nio-8888-exec-1] com.tweetapp.jwt.JwtUtil                 : Token created :: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE2NjM0MTA4ODEsImV4cCI6MTY2MzQxNDQ4MSwidXNlcm5hbWUiOiJib2IifQ.MrpHyxweCKbk05WOmSKL6RgiqbcRj4B2P3jtp2j8YCI
+2022-09-17 16:04:41.546  INFO 19200 --- [http-nio-8888-exec-1] com.tweetapp.service.UserServiceImpl     : loginResponse : LoginResponse [username=bob, token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE2NjM0MTA4ODEsImV4cCI6MTY2MzQxNDQ4MSwidXNlcm5hbWUiOiJib2IifQ.MrpHyxweCKbk05WOmSKL6RgiqbcRj4B2P3jtp2j8YCI]
+2022-09-17 16:04:41.547  INFO 19200 --- [http-nio-8888-exec-1] com.tweetapp.controller.UserController   : User login : bob
+2022-09-17 16:04:44.597  INFO 19200 --- [http-nio-8888-exec-6] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 16:04:44.597  INFO 19200 --- [http-nio-8888-exec-6] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 16:04:44.599  INFO 19200 --- [http-nio-8888-exec-9] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 16:04:44.599  INFO 19200 --- [http-nio-8888-exec-9] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 16:04:44.930  INFO 19200 --- [http-nio-8888-exec-8] com.tweetapp.controller.TweetController  : Getting all tweets
+2022-09-17 16:04:46.252  INFO 19200 --- [http-nio-8888-exec-6] com.tweetapp.controller.TweetController  : Getting all tweets of user : bob
+2022-09-17 18:15:46.814  INFO 19200 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-09-17 18:16:35.857  INFO 15676 --- [main] c.t.controller.TweetControllerTest       : Starting TweetControllerTest using Java 11.0.9 on LTIN324832 with PID 15676 (started by 918594 in C:\HackFSE\TweetAppBackend)
+2022-09-17 18:16:35.863  INFO 15676 --- [main] c.t.controller.TweetControllerTest       : No active profile set, falling back to default profiles: default
+2022-09-17 18:16:42.249  INFO 15676 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-09-17 18:16:42.821  INFO 15676 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-09-17 18:16:42.822  INFO 15676 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-09-17 18:16:42.825  INFO 15676 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2022-09-17 18:16:43.694  INFO 15676 --- [main] c.t.controller.TweetControllerTest       : Started TweetControllerTest in 9.113 seconds (JVM running for 12.237)
+2022-09-17 18:16:44.313  INFO 15676 --- [main] com.tweetapp.controller.TweetController  : Tweet replied by user : john : 100
+2022-09-17 18:16:44.429  INFO 15676 --- [main] com.tweetapp.controller.TweetController  : Tweet updated by user : john : 100
+2022-09-17 18:16:44.448  INFO 15676 --- [main] com.tweetapp.controller.TweetController  : Getting all tweets
+2022-09-17 18:16:44.484  INFO 15676 --- [main] com.tweetapp.controller.TweetController  : New tweet posted by : john
+2022-09-17 18:16:44.503  INFO 15676 --- [main] com.tweetapp.controller.TweetController  : Tweet deleted by user : john : 100
+2022-09-17 18:16:44.527  INFO 15676 --- [main] com.tweetapp.controller.TweetController  : Tweet liked by user : john : 100
+2022-09-17 18:16:44.548  INFO 15676 --- [main] com.tweetapp.controller.TweetController  : Getting all tweets of user : john
+2022-09-17 18:16:44.753  INFO 15676 --- [main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.tweetapp.controller.UserControllerTest], using SpringBootContextLoader
+2022-09-17 18:16:44.756  INFO 15676 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.tweetapp.controller.UserControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-09-17 18:16:44.757  INFO 15676 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tweetapp.controller.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-09-17 18:16:44.765  INFO 15676 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tweetapp.TweetAppApplication for test class com.tweetapp.controller.UserControllerTest
+2022-09-17 18:16:44.768  INFO 15676 --- [main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-09-17 18:16:44.770  INFO 15676 --- [main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7bef7505, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@568ef502, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@36f05595, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3e12c5de, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3e55d844, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1f521c69, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2b3abeeb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3aeb267, org.springframework.test.context.event.EventPublishingTestExecutionListener@13a9cdae, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1c972ae6, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@62a41279, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@146fa9c0, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@49f6c25e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6c13019c, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@2e66f1bd]
+2022-09-17 18:16:44.853  INFO 15676 --- [main] c.t.controller.UserControllerTest        : Starting UserControllerTest using Java 11.0.9 on LTIN324832 with PID 15676 (started by 918594 in C:\HackFSE\TweetAppBackend)
+2022-09-17 18:16:44.856  INFO 15676 --- [main] c.t.controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2022-09-17 18:16:46.611  INFO 15676 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-09-17 18:16:46.898  INFO 15676 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-09-17 18:16:46.899  INFO 15676 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-09-17 18:16:46.901  INFO 15676 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2022-09-17 18:16:47.145  INFO 15676 --- [main] c.t.controller.UserControllerTest        : Started UserControllerTest in 2.368 seconds (JVM running for 15.688)
+2022-09-17 18:16:47.162  INFO 15676 --- [main] com.tweetapp.controller.UserController   : Getting all users
+2022-09-17 18:16:47.198  INFO 15676 --- [main] com.tweetapp.controller.UserController   : User login : john
+2022-09-17 18:16:47.219  INFO 15676 --- [main] com.tweetapp.controller.UserController   : Getting all users by : john
+2022-09-17 18:16:47.274  INFO 15676 --- [main] com.tweetapp.controller.UserController   : New user registered : john
+2022-09-17 18:16:47.298  INFO 15676 --- [main] com.tweetapp.controller.UserController   : User password reset : john
+2022-09-17 18:16:47.319  INFO 15676 --- [main] com.tweetapp.controller.UserController   : User Deleted : john
+2022-09-17 18:16:47.338  INFO 15676 --- [main] com.tweetapp.controller.UserController   : Token valid status : true
+2022-09-17 18:16:47.555  INFO 15676 --- [main] com.tweetapp.jwt.JwtUtil                 : Token created :: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE2NjM0MTg4MDcsImV4cCI6MTY2MzQyMjQwNywidXNlcm5hbWUiOiJqb2huIn0.fDCk_buTsOC2bZiTrrfP_Iy4gnd83hBv-aB17BWyacU
+2022-09-17 18:16:47.557  INFO 15676 --- [main] com.tweetapp.jwt.JwtUtil                 : Token created :: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE2NjM0MTg4MDcsImV4cCI6MTY2MzQyMjQwNywidXNlcm5hbWUiOiJqb2huIn0.fDCk_buTsOC2bZiTrrfP_Iy4gnd83hBv-aB17BWyacU
+2022-09-17 18:16:47.572  INFO 15676 --- [main] com.tweetapp.jwt.JwtUtil                 : Token created :: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE2NjM0MTg4MDcsImV4cCI6MTY2MzQyMjQwNywidXNlcm5hbWUiOiJqb2huIn0.fDCk_buTsOC2bZiTrrfP_Iy4gnd83hBv-aB17BWyacU
+2022-09-17 18:16:47.635  INFO 15676 --- [main] com.tweetapp.jwt.JwtUtil                 : Token created :: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE2NjM0MTg4MDcsImV4cCI6MTY2MzQyMjQwNywidXNlcm5hbWUiOiJqb2huIn0.fDCk_buTsOC2bZiTrrfP_Iy4gnd83hBv-aB17BWyacU
+2022-09-17 18:16:47.636 ERROR 15676 --- [main] com.tweetapp.jwt.JwtUtil                 : Token verification failed
+2022-09-17 18:16:47.641  INFO 15676 --- [main] com.tweetapp.jwt.JwtUtil                 : Token created :: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE2NjM0MTg4MDcsImV4cCI6MTY2MzQyMjQwNywidXNlcm5hbWUiOiJqb2huIn0.fDCk_buTsOC2bZiTrrfP_Iy4gnd83hBv-aB17BWyacU
+2022-09-17 18:16:47.643 ERROR 15676 --- [main] com.tweetapp.jwt.JwtUtil                 : Token verification failed
+2022-09-17 18:16:47.650  INFO 15676 --- [main] com.tweetapp.jwt.JwtUtil                 : Token created :: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE2NjM0MTg4MDcsImV4cCI6MTY2MzQyMjQwNywidXNlcm5hbWUiOiJqb2huIn0.fDCk_buTsOC2bZiTrrfP_Iy4gnd83hBv-aB17BWyacU
+2022-09-17 18:16:47.771 ERROR 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : No such user exists
+2022-09-17 18:16:47.776 ERROR 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : Tweet not found
+2022-09-17 18:16:47.782 ERROR 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : No such user exists
+2022-09-17 18:16:47.817  INFO 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : Updated Tweet : Tweet{id='1', tweet='Hi All', postedDate=2022-09-17T18:16:47.788131, likes=0, likedBy=[], replies=[], tweetTag='null', user='john'}
+2022-09-17 18:16:47.826 ERROR 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : Tweet not found
+2022-09-17 18:16:47.832  INFO 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : Tweet{id='1', tweet='Hi All', postedDate=2022-09-17T18:16:47.832129100, likes=0, likedBy=[], replies=[], tweetTag='null', user='john'}
+2022-09-17 18:16:47.834  INFO 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : Posted Tweet : Tweet{id='1', tweet='Hi All', postedDate=2022-09-17T18:16:47.832129100, likes=0, likedBy=[], replies=[], tweetTag='null', user='john'}
+2022-09-17 18:16:47.842  INFO 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : Tweet likes : 1
+2022-09-17 18:16:47.848 ERROR 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : No such user exists
+2022-09-17 18:16:47.853 ERROR 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : Tweet not found
+2022-09-17 18:16:47.908  INFO 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : 1 Tweet{id='1', tweet='Hi All', postedDate=null, likes=0, likedBy=[], replies=[], tweetTag='null', user='john'}
+2022-09-17 18:16:47.916 ERROR 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : No such user exists
+2022-09-17 18:16:47.923  INFO 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : Tweet replies : [Tweet{id='1', tweet='Hi All', postedDate=2022-09-17T18:16:47.922127500, likes=0, likedBy=[], replies=[], tweetTag='null', user='john'}]
+2022-09-17 18:16:47.945 ERROR 15676 --- [main] com.tweetapp.service.TweetServiceImpl    : No such user exists
+2022-09-17 18:16:47.990  INFO 15676 --- [main] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : true
+2022-09-17 18:16:47.996 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : No such username exists
+2022-09-17 18:16:48.001 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : No such username exists
+2022-09-17 18:16:48.006 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : There are no users
+2022-09-17 18:16:48.011 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : Email already in use : john@yahoo.com
+2022-09-17 18:16:48.031  INFO 15676 --- [main] com.tweetapp.service.UserServiceImpl     : User Created : UserResponse [username=john, firstName=John, lastName=Wick, email=john@yahoo.com, contactNumber=1234567890]
+2022-09-17 18:16:48.036 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : No such username exists
+2022-09-17 18:16:48.040 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : Invalid username or password
+2022-09-17 18:16:48.044  INFO 15676 --- [main] com.tweetapp.service.UserServiceImpl     : Token Valid in user service : false
+2022-09-17 18:16:48.050 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : Email doesn't match with username
+2022-09-17 18:16:48.062  INFO 15676 --- [main] com.tweetapp.service.UserServiceImpl     : loginResponse : LoginResponse [username=john, token=abcndjskd]
+2022-09-17 18:16:48.063  INFO 15676 --- [main] com.tweetapp.service.UserServiceImpl     : loginResponse : LoginResponse [username=john, token=abcndjskd]
+2022-09-17 18:16:48.074 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : Username already exists : john
+2022-09-17 18:16:48.083 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : Invalid username or password
+2022-09-17 18:16:48.095 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : Invalid username or password
+2022-09-17 18:16:48.104 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : Incorrect password
+2022-09-17 18:16:48.110 ERROR 15676 --- [main] com.tweetapp.service.UserServiceImpl     : No such username exists
+2022-09-17 18:16:48.119  INFO 15676 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.tweetapp.TweetAppApplicationTests], using SpringBootContextLoader
+2022-09-17 18:16:48.121  INFO 15676 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.tweetapp.TweetAppApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-09-17 18:16:48.122  INFO 15676 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tweetapp.TweetAppApplicationTests]: TweetAppApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-09-17 18:16:48.140  INFO 15676 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tweetapp.TweetAppApplication for test class com.tweetapp.TweetAppApplicationTests
+2022-09-17 18:16:48.151  INFO 15676 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-09-17 18:16:48.152  INFO 15676 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5b9df3b3, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@67b20b4c, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@7bbe532b, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3e0a112f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@abe7d36, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7da1ef46, org.springframework.test.context.transaction.TransactionalTestExecutionListener@740fccd2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1ae23815, org.springframework.test.context.event.EventPublishingTestExecutionListener@63ccb1b2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1165a952, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1b868ef0, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@102f3f05, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@16e84d93, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2a7b5925, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5a5b394]
+2022-09-17 18:16:48.203  INFO 15676 --- [main] com.tweetapp.TweetAppApplicationTests    : Starting TweetAppApplicationTests using Java 11.0.9 on LTIN324832 with PID 15676 (started by 918594 in C:\HackFSE\TweetAppBackend)
+2022-09-17 18:16:48.204  INFO 15676 --- [main] com.tweetapp.TweetAppApplicationTests    : No active profile set, falling back to default profiles: default
+2022-09-17 18:16:54.305  INFO 15676 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
+2022-09-17 18:16:54.975  INFO 15676 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-09-17 18:16:56.401  INFO 15676 --- [main] com.tweetapp.TweetAppApplicationTests    : Started TweetAppApplicationTests in 8.244 seconds (JVM running for 24.944)
+2022-09-17 18:16:56.510  INFO 15676 --- [main] com.tweetapp.TweetAppApplication         : Starting TweetAppApplication using Java 11.0.9 on LTIN324832 with PID 15676 (started by 918594 in C:\HackFSE\TweetAppBackend)
+2022-09-17 18:16:56.511  INFO 15676 --- [main] com.tweetapp.TweetAppApplication         : No active profile set, falling back to default profiles: default
+2022-09-17 18:16:58.060  INFO 15676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-09-17 18:16:58.093  INFO 15676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-17 18:16:58.094  INFO 15676 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-09-17 18:16:58.506  INFO 15676 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-17 18:16:58.507  INFO 15676 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1989 ms
+2022-09-17 18:16:59.024  INFO 15676 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
+2022-09-17 18:16:59.132  INFO 15676 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-09-17 18:16:59.346  INFO 15676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2022-09-17 18:16:59.700  INFO 15676 --- [main] com.tweetapp.TweetAppApplication         : Started TweetAppApplication in 3.274 seconds (JVM running for 28.242)
+2022-09-17 18:16:59.753  INFO 15676 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-09-17 18:16:59.755  INFO 15676 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-09-17 18:16:59.776  INFO 15676 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-09-17 18:17:00.235  INFO 15676 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

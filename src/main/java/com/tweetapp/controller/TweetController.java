@@ -26,7 +26,7 @@ import com.tweetapp.service.TweetService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1.0/tweets")
 public class TweetController {
