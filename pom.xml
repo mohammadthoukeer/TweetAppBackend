@@ -131,6 +131,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>tweet-app-backend</finalName>
 	</build>
 
 </project>
